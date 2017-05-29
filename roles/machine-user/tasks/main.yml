@@ -1,0 +1,4 @@
+---
+- include: create-ssh-directory.yml
+- include: copy-ssh-keys.yml
+- include: authorize-user.yml

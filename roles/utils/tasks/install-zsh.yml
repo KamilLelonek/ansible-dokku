@@ -1,0 +1,18 @@
+---
+- name:     check for ohmyzsh installation
+  stat:     path=/root/.oh-my-zsh
+  register: zsh_installation
+
+- block:
+  - name:    install zsh package
+    package: name=zsh
+
+  - name: download ohmyzsh script
+    get_url:
+      url:  http://install.ohmyz.sh
+      dest: /tmp
+      mode: 0755
+
+  - name:  install ohmyzsh
+    shell: /tmp/install.sh
+  when: zsh_installation.stat.isdir is undefined

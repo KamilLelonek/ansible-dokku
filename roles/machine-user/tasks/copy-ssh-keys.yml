@@ -1,0 +1,9 @@
+---
+- name: transfer SSH keys for machine user
+  copy:
+    src:  "{{ item.key }}"
+    dest: "{{ user_ssh_path }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - { key: "{{ user_ssh_key }}.pub", mode: "0644" }
+    - { key: "{{ user_ssh_key }}",     mode: "0600" }

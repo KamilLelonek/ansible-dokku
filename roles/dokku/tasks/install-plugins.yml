@@ -1,0 +1,5 @@
+---
+- name:    install all plugins
+  command: dokku plugin:install {{ item }}
+  with_items:    "{{ plugins }}"
+  ignore_errors: yes

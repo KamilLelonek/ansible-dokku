@@ -1,0 +1,15 @@
+---
+version:    0.9.4
+tmp_file:   /tmp/dokku.sh
+ssh_dir:    /tmp/github-ssh-keys
+dokku_home: /home/dokku
+plugins:
+  - https://github.com/dokku/dokku-postgres.git
+  - https://github.com/dokku/dokku-redis.git
+  - https://github.com/dokku-community/dokku-docker-direct
+  - https://github.com/mbriskar/dokku-wkhtmltopdf.git
+  - https://github.com/dokku/dokku-elasticsearch.git
+  - https://github.com/dokku/dokku-maintenance.git
+  - https://github.com/dokku/dokku-redirect.git
+  - https://github.com/dokku/dokku-http-auth.git
+  - https://github.com/iloveitaly/dokku-rollbar.git

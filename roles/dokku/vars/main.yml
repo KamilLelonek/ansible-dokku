@@ -1,0 +1,3 @@
+---
+tag: v{{ version }}
+url: https://raw.githubusercontent.com/dokku/dokku/{{ tag }}/bootstrap.sh

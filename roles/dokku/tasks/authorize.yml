@@ -1,0 +1,17 @@
+---
+- name: create directory for SSH keys
+  file:
+    name:  "{{ ssh_dir }}"
+    state: directory
+    mode:  "u+w,g+w,o+w"
+
+- name: download developer keys
+  get_url:
+    url:  http://github.com/{{ item }}.keys
+    dest: "{{ ssh_dir }}/{{ item }}.pub"
+  with_items: "{{ developers }}"
+
+- name: authorize developers
+  raw:  dokku ssh-keys:add {{ item }} {{ ssh_dir }}/{{ item }}.pub
+  with_items: "{{ developers }}"
+  ignore_errors: yes

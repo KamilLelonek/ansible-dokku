@@ -1,0 +1,5 @@
+---
+- include: install.yml
+- include: authorize.yml
+- include: install-plugins.yml
+- include: set-fqdn.yml

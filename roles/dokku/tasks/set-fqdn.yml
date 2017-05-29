@@ -1,0 +1,5 @@
+---
+- name: configure a global domain name
+  copy:
+    dest:    /home/dokku/VHOST
+    content: "{{ domain }}"

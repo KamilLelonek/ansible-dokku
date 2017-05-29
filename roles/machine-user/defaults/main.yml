@@ -1,0 +1,4 @@
+---
+user_ssh_key:  ../../files/ssh-keys/id_rsa
+user_ssh_path: /root/.ssh
+user_group:    root

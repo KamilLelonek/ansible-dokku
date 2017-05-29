@@ -1,0 +1,12 @@
+---
+- name: Update all packages to the latest version
+  apt:  upgrade=dist
+
+- name:    install common packages
+  package: name={{ item }}
+  with_items:
+    - git
+    - httpie
+    - jq
+    - monit
+    - pass

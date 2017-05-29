@@ -1,0 +1,9 @@
+---
+- name:  clear current authorized keys
+  shell: cat > /root/.ssh/authorized_keys
+
+- name: add SSH developers keys
+  authorized_key:
+    user: root
+    key:  https://github.com/{{ item }}.keys
+  with_items: "{{ developers }}"

@@ -1,0 +1,5 @@
+---
+- name: authorize machine user itself
+  authorized_key:
+    user: root
+    key:  "{{ lookup('file', user_ssh_key + '.pub') }}"
