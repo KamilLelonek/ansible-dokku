@@ -11,7 +11,11 @@
     dest: "{{ ssh_dir }}/{{ item }}.pub"
   with_items: "{{ developers }}"
 
+- name:     discover developers
+  command:  dokku ssh-keys:list
+  register: authorized_developers
+
 - name: authorize developers
   raw:  dokku ssh-keys:add {{ item }} {{ ssh_dir }}/{{ item }}.pub
   with_items: "{{ developers }}"
-  ignore_errors: yes
+  when:       authorized_developers.stdout.find(item) == -1
